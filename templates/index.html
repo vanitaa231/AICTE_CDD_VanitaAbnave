@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Crop Leaf Disease Detection</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        img {
+            margin-top: 20px;
+            width: 300px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌿 Multi-Crop Leaf Disease Detection</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <br><br>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if image_path %}
+            <img src="{{ image_path }}">
+            <div class="result">
+                <p><strong>Crop:</strong> {{ crop }}</p>
+                <p><strong>Disease:</strong> {{ disease }}</p>
+                <p><strong>Confidence:</strong> {{ confidence }}%</p>
+                <p><strong>Recommended Treatment:</strong></p>
+                <p>{{ treatment }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
